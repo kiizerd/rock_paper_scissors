@@ -1,0 +1,64 @@
+/* 
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com 
+Twitter: @rich_clark
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+ margin:0;
+ padding:0;
+ border:0;
+ outline:0;
+ font-size:100%;
+ vertical-align:baseline;
+ background:transparent;
+ font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+    align-items: center;
+    background-color: gray;
+}
+
+h1 {
+    text-align: center;
+    position: relative;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    font-size: 1.5em;
+}
+
+#game-display {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 75%;
+    top: 25%;
+    margin: auto;
+    padding: 10px;
+}
+
+.displayed {
+    margin: 3px;
+    padding: 3px;
+}
+
+#rulesheet {
+    position: fixed;
+    top: 15%;
+    right: 0px;
+    width: auto;
+}
