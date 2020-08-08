@@ -3,7 +3,7 @@ const display = document.querySelector('#game-display');
 const scoreboard = document.querySelector('#scoreboard');
 const docPlayerScore = document.querySelector('#player-score');
 const docCompScore = document.querySelector('#comp-score');
-const roundNum = document.querySelector('#round-num');
+const docRoundNum = document.querySelector('#round-num');
 const newGame = document.querySelector('#ng-btn');
 const rockBtn = document.querySelector('#rock-btn');
 const paperBtn = document.querySelector('paper-btn');
@@ -12,8 +12,10 @@ const scissorsBtn = document.querySelector('#scissors-btn');
 
 
 let totalRounds = 5;
+let roundNum = 0;
 let playerScore = 0;
 let compScore = 0;
+let roundResult;
 
 function randChoice(min, max) {
     return Math.floor(Math.random() * (max - min) ) + min;
@@ -37,7 +39,6 @@ function computerPlay() {
 }
 
 function playRound(playerSelect, compSelect) {
-    let roundResult;
     switch(playerSelect) {
         case 'rock':
             switch(compSelect) {
@@ -94,9 +95,31 @@ function playRound(playerSelect, compSelect) {
 console.log(playRound(computerPlay(), computerPlay()));
 
 function game() {
-    for (let i = 1; i < totalRounds; i++) {
-        let = playerChoice = prompt('Rock, Paper, or Scissors?', '');
-        let finalChoice = playerChoice.toLowerCase()
-        playRound(finalChoice, computerPlay());
-    }
-}
+    compScore = 0;
+    playerScore = 0;
+    roundNum = 0;
+    //player choice
+    //comp choice
+    setScore();
+    for (let i = 1; i <= totalRounds; i++) {
+        let compFinal = computerPlay();
+        let playerChoice = 'rock'; //prompt('Rock, Paper, or Scissors?', '');
+        let playerFinal = playerChoice
+        playRound(playerFinal, compFinal);
+        roundNum += 1;
+        setScore();
+        document.getElementById('player-choice').innerHTML = playerFinal;
+        document.getElementById('comp-choice').innerHTML = compFinal;
+        console.log(roundResult)
+
+    };   
+};
+
+function setScore() {
+    document.getElementById('round-num').innerHTML = roundNum;
+    document.getElementById('comp-score').innerHTML = compScore;
+    document.getElementById('player-score').innerHTML = playerScore;
+    document.getElementById('round-num').innerHTML = roundNum;
+    document.getElementById('round-result').innerHTML = roundResult;
+};
+
