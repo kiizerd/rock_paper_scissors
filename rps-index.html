@@ -15,14 +15,14 @@
   <h1>Rock, Paper, Scissors</h1>
   <div class='displayed' id='game-display'>
     <div class='displayed' id='scoreboard'>
-      <div id='player-score'>Player Score: </div>
-      <div id='comp-score'>Computer Score: </div>
+      <div>Player Score: <span id='player-score'></span></div>
+      <div>Computer Score: <span id='comp-score'></span></div>
     </div>
     <div class='displayed' id='round-desc'>
-      <div id='round-num'>Round Number: </div>
-      <div id="player-choice">Player chose: </div>
-      <div id="comp-choice">Computer chose: </div>
-
+      <div>Round Number: <span id='round-num'></span></div>
+      <div>Computer chose: <span id="comp-choice"></span></div>
+      <div>Player chose: <span id="player-choice"></span></div>
+      <div id ='round-result'></div>
     </div>
     <div class='displayed' id='choice-btns'>
       <button id='rock-btn'>Rock</button>
@@ -31,7 +31,7 @@
 
     </div>
     <div id='ng-div'>
-      <button id='ng-btn'>New Game</button>
+      <button onclick='game()' id='ng-btn'>New Game</button>
     </div>
   </div>
 </body>
