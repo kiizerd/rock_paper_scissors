@@ -17,7 +17,6 @@ let compScore = 0;
 
 function randChoice(min, max) {
     return Math.floor(Math.random() * (max - min) ) + min;
-    //random number between min(included) and max(exlcuded)
 }
 
 function computerPlay() {
@@ -35,8 +34,6 @@ function computerPlay() {
             break;    
     }
     return choiceStr;
-    //selects randomly between 1, 2, and 3, and assigns choiceStr with 
-    // 'rock', 'paper', or 'scissors', respectively and returns it.
 }
 
 function playRound(playerSelect, compSelect) {
@@ -92,8 +89,6 @@ function playRound(playerSelect, compSelect) {
             break;  
     }
     return roundResult;
-    // Compares computers random selection with players manual one
-    // Decides winner and returns roundResult with a string description
 }
 
 console.log(playRound(computerPlay(), computerPlay()));
