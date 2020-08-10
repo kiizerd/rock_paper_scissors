@@ -4,6 +4,7 @@ const scoreboard = document.querySelector('#scoreboard');
 const docPlayerScore = document.querySelector('#player-score');
 const docCompScore = document.querySelector('#comp-score');
 const docRoundNum = document.querySelector('#round-num');
+const docRoundResult = document.querySelector('#round-result');
 const newGame = document.querySelector('#ng-btn');
 const rockBtn = document.querySelector('#rock-btn');
 const paperBtn = document.querySelector('paper-btn');
@@ -116,10 +117,10 @@ function game() {
 };
 
 function setScore() {
-    document.getElementById('round-num').innerHTML = roundNum;
-    document.getElementById('comp-score').innerHTML = compScore;
-    document.getElementById('player-score').innerHTML = playerScore;
-    document.getElementById('round-num').innerHTML = roundNum;
-    document.getElementById('round-result').innerHTML = roundResult;
+    //document.getElementById('round-num').innerHTML = roundNum;
+    docRoundNum.innerHTML = roundNum;
+    docCompScore.innerHTML = compScore;
+    docPlayerScore.innerHTML = playerScore;
+    docRoundResult.innerHTML = roundResult;
 };
 
