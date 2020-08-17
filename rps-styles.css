@@ -48,3 +48,10 @@ h1 {
     padding: 3px;
     
 }
+
+#ng-div {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: 20%;
+}
