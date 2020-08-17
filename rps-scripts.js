@@ -7,7 +7,7 @@ const docRoundNum = document.querySelector('#round-num');
 const docRoundResult = document.querySelector('#round-result');
 const newGame = document.querySelector('#ng-btn');
 const rockBtn = document.querySelector('#rock-btn');
-const paperBtn = document.querySelector('paper-btn');
+const paperBtn = document.querySelector('#paper-btn');
 const scissorsBtn = document.querySelector('#scissors-btn');
 
 
@@ -40,6 +40,7 @@ function computerPlay() {
 }
 
 function playRound(playerSelect, compSelect) {
+    roundNum += 1;
     switch(playerSelect) {
         case 'rock':
             switch(compSelect) {
@@ -91,11 +92,27 @@ function playRound(playerSelect, compSelect) {
             break;  
     }
     return roundResult;
+
 }
 
-console.log(playRound(computerPlay(), computerPlay()));
 
-function game() {
+
+rockBtn.addEventListener('click',  () => {
+    playRound('rock', computerPlay())
+    console.log(roundResult);
+});
+scissorsBtn.addEventListener('click', () => {
+    playRound('scissors', computerPlay())
+    console.log(roundResult);
+});
+paperBtn.addEventListener('click', () => {
+     playRound('paper', computerPlay())
+     console.log(roundResult);
+});
+
+
+
+/*function game() {
     compScore = 0;
     playerScore = 0;
     roundNum = 0;
@@ -117,10 +134,11 @@ function game() {
 };
 
 function setScore() {
-    //document.getElementById('round-num').innerHTML = roundNum;
-    docRoundNum.innerHTML = roundNum;
-    docCompScore.innerHTML = compScore;
-    docPlayerScore.innerHTML = playerScore;
-    docRoundResult.innerHTML = roundResult;
-};
+        //document.getElementById('round-num').innerHTML = roundNum;
+        docRoundNum.textContent = roundNum;
+        docCompScore.textContent = compScore;
+        docPlayerScore.textContent = playerScore;
+        docRoundResult.textContent = roundResult;
+    };
 
+*/
