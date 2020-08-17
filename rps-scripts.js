@@ -12,8 +12,8 @@ const scissorsBtn = document.querySelector('#scissors-btn');
 
 
 
-let totalRounds = 5;
-let roundNum = 0;
+let goalScore = 5;
+let roundNum = 1;
 let playerScore = 0;
 let compScore = 0;
 let roundResult;
@@ -40,7 +40,6 @@ function computerPlay() {
 }
 
 function playRound(playerSelect, compSelect) {
-    roundNum += 1;
     switch(playerSelect) {
         case 'rock':
             switch(compSelect) {
@@ -92,53 +91,44 @@ function playRound(playerSelect, compSelect) {
             break;  
     }
     return roundResult;
-
 }
 
-
-
-rockBtn.addEventListener('click',  () => {
-    playRound('rock', computerPlay())
-    console.log(roundResult);
-});
-scissorsBtn.addEventListener('click', () => {
-    playRound('scissors', computerPlay())
-    console.log(roundResult);
-});
-paperBtn.addEventListener('click', () => {
-     playRound('paper', computerPlay())
-     console.log(roundResult);
-});
-
-
-
-/*function game() {
-    compScore = 0;
-    playerScore = 0;
-    roundNum = 0;
-    //player choice
-    //comp choice
-    setScore();
-    for (let i = 1; i <= totalRounds; i++) {
-        let compFinal = computerPlay();
-        let playerChoice = 'rock'; //prompt('Rock, Paper, or Scissors?', '');
-        let playerFinal = playerChoice
-        playRound(playerFinal, compFinal);
-        roundNum += 1;
+clickRound = (select) => {
+    if (playerScore == goalScore || compScore == goalScore) {
+        resetScore();
+    } else {
+        playRound(select, computerPlay());
         setScore();
-        document.getElementById('player-choice').innerHTML = playerFinal;
-        document.getElementById('comp-choice').innerHTML = compFinal;
-        console.log(roundResult)
+        roundNum += 1;
+    }
+}
 
-    };   
+resetScore = () => {
+    roundNum = 1;
+    playerScore = 0;
+    compScore = 0;
+    roundResult = '';
+    setScore();
+}
+
+setScore = () => {
+    docRoundNum.textContent = roundNum;
+    docPlayerScore.textContent = playerScore;
+    docCompScore.textContent = compScore;
+    docRoundResult.textContent = roundResult;
 };
 
-function setScore() {
-        //document.getElementById('round-num').innerHTML = roundNum;
-        docRoundNum.textContent = roundNum;
-        docCompScore.textContent = compScore;
-        docPlayerScore.textContent = playerScore;
-        docRoundResult.textContent = roundResult;
-    };
+rockBtn.addEventListener('click',  () => {
+    clickRound('rock');
+});
+scissorsBtn.addEventListener('click', () => {
+    clickRound('scissors');
+});
+paperBtn.addEventListener('click', () => {
+    clickRound('paper');
+});
+newGame.addEventListener('click', () => {
+    resetScore();
+})
 
-*/
+setScore();
