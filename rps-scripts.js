@@ -9,14 +9,16 @@ const newGame = document.querySelector('#ng-btn');
 const rockBtn = document.querySelector('#rock-btn');
 const paperBtn = document.querySelector('#paper-btn');
 const scissorsBtn = document.querySelector('#scissors-btn');
-
-
+const matchResult = document.querySelector('#match-result');
+const docPlayerChoice = document.querySelector('#player-choice');
+const docCompChoice = document.querySelector('#comp-choice');
 
 let goalScore = 5;
 let roundNum = 1;
 let playerScore = 0;
 let compScore = 0;
 let roundResult;
+let holdCompChoice;
 
 function randChoice(min, max) {
     return Math.floor(Math.random() * (max - min) ) + min;
@@ -36,6 +38,7 @@ function computerPlay() {
             choiceStr = 'scissors'
             break;    
     }
+    docCompChoice.textContent = choiceStr;
     return choiceStr;
 }
 
@@ -95,10 +98,15 @@ function playRound(playerSelect, compSelect) {
 
 clickRound = (select) => {
     if (playerScore == goalScore || compScore == goalScore) {
-        resetScore();
+        if (playerScore > compScore) {
+            matchResult.textContent = 'You win! Congrats!'
+        } else {
+            matchResult.textContent = 'You lose. Oof.'
+        }
     } else {
         playRound(select, computerPlay());
         setScore();
+        docPlayerChoice.textContent = select;
         roundNum += 1;
     }
 }
@@ -113,9 +121,9 @@ resetScore = () => {
 
 setScore = () => {
     docRoundNum.textContent = roundNum;
-    docPlayerScore.textContent = playerScore;
-    docCompScore.textContent = compScore;
     docRoundResult.textContent = roundResult;
+    docCompScore.textContent = compScore;
+    docPlayerScore.textContent = playerScore;
 };
 
 rockBtn.addEventListener('click',  () => {
@@ -129,6 +137,7 @@ paperBtn.addEventListener('click', () => {
 });
 newGame.addEventListener('click', () => {
     resetScore();
+    matchResult.textContent = '';
 })
 
 setScore();
