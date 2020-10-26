@@ -12,6 +12,7 @@ const scissorsBtn = document.querySelector('#scissors-btn');
 const matchResult = document.querySelector('#match-result');
 const docPlayerChoice = document.querySelector('#player-choice');
 const docCompChoice = document.querySelector('#comp-choice');
+const firstToBtns = document.getElementsByName('firstTo');
 
 let goalScore = 5;
 let roundNum = 1;
@@ -97,18 +98,17 @@ function playRound(playerSelect, compSelect) {
 }
 
 clickRound = (select) => {
+    playRound(select, computerPlay());
+    setScore();
+    docPlayerChoice.textContent = select;
     if (playerScore == goalScore || compScore == goalScore) {
         if (playerScore > compScore) {
             matchResult.textContent = 'You win! Congrats!'
         } else {
             matchResult.textContent = 'You lose. Oof.'
         }
-    } else {
-        playRound(select, computerPlay());
-        setScore();
-        docPlayerChoice.textContent = select;
-        roundNum += 1;
     }
+    roundNum += 1;
 }
 
 resetScore = () => {
@@ -138,6 +138,12 @@ paperBtn.addEventListener('click', () => {
 newGame.addEventListener('click', () => {
     resetScore();
     matchResult.textContent = '';
+})
+
+firstToBtns.forEach(btn => {
+    btn.addEventListener('click', () =>{
+     goalScore = btn.value
+    })
 })
 
 setScore();
