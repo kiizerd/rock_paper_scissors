@@ -1,4 +1,4 @@
-﻿#Rock, Paper, Scissors
+﻿# Rock, Paper, Scissors
 
 Simple web-game to help me learn HTML, CSS, and JavaScript.
 
